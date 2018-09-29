@@ -1,0 +1,21 @@
+{
+  "name": "ops-team-topic-updater",
+  "version": "0.0.1",
+  "description": "Updates a Slack channel topic with key stats from Jira and PagerDuty.",
+  "homepage": "https://github.com/tdmalone/ops-team-topic-updater#readme",
+  "repository": "git+https://github.com/tdmalone/ops-team-topic-updater.git",
+  "main": "index.js",
+  "author": "Tim Malone <tdmalone@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "jira",
+    "pagerduty",
+    "slack"
+  ],
+  "dependencies": {
+    "express": "^4.16.3",
+    "jira-connector": "^2.9.0",
+    "node-pagerduty": "^1.0.3",
+    "slack-topic-updater": "^0.0.1"
+  }
+}
