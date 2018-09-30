@@ -20,8 +20,8 @@
       "description": "The ID of the Jira filter that matches your blocker (high priority) issues. You can manage filters at https://jira.example.com/secure/ManageFilters.jspa."
     },
     "JIRA_BLOCKERS_DESCRIPTION": {
-      "description": "A short description that you use to refer to Jira 'blockers'. Might be 'high priority', 'critical', etc. This will be used in your Slack channel topic when issues exist that match the relevant filter.",
-      "value": "blockers"
+      "description": "A short description that you use to refer to a Jira 'blocker'. Might be 'high priority', 'critical', etc. This will be used in your Slack channel topic when issues exist that match the relevant filter. Optionally provide both a singular and plural term, split with a pipe (|).",
+      "value": "blocker|blockers"
     },
     "JIRA_USERNAME": {
       "description": "Username for access to your Jira instance. It's recommended that this be for a read-only service account."

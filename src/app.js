@@ -7,12 +7,13 @@
 
 'use strict';
 
-const JIRA_BLOCKERS_DESCRIPTION = process.env.JIRA_BLOCKERS_DESCRIPTION || 'blockers',
+const JIRA_BLOCKERS_DESCRIPTION = process.env.JIRA_BLOCKERS_DESCRIPTION || 'blocker|blockers',
       SLACK_CHANNEL_ID = process.env.SLACK_CHANNEL_ID,
       SLACK_OAUTH_TOKEN = process.env.SLACK_OAUTH_TOKEN;
 
 const jira = require( './jira' ),
       pagerduty = require( './pagerduty' ),
+      helpers = require( './helpers' ),
       slackTopicUpdater = require( 'slack-topic-updater' );
 
 /**
@@ -50,8 +51,15 @@ const handler = async ( request, response ) => {
     // Add Jira issues to the new topic string.
     if ( issues ) {
       console.log( issues );
-      topic += issues.all + ' issues';
-      topic += issues.blockers ? ', ' + issues.blockers + ' ' + JIRA_BLOCKERS_DESCRIPTION : '';
+      topic += helpers.maybePluralise( issues.all, 'issue' );
+
+      if ( issues.blockers ) {
+        const blockersTerms = JIRA_BLOCKERS_DESCRIPTION.split( '|' );
+        const singular = blockersTerms[0];
+        const plural = blockersTerms[1] ? blockersTerms[1] : singular;
+        topic += ', ';
+        topic += helpers.maybePluralise( issues.blockers, singular, plural );
+      }
     }
 
     topic += issues && incidents ? ' | ' : '';
@@ -59,8 +67,11 @@ const handler = async ( request, response ) => {
     // Add PagerDuty incidents to the new topic string.
     if ( incidents ) {
       console.log( incidents );
-      topic += incidents.all + ' incidents';
-      topic += incidents.unacked ? ', ' + incidents.unacked + ' unack\'ed' : '';
+      topic += helpers.maybePluralise( incidents.all, 'incident' );
+
+      if ( incidents.unacked ) {
+        topic += ', ' + incidents.unacked + ' unack\'ed';
+      }
     }
 
     console.log( 'Updating topic for ' + SLACK_CHANNEL_ID + ' to "' + topic + '"...' );
