@@ -41,7 +41,7 @@ _Tested with Jira Server 7.2.1._
 
     You'll need to enter your Slack access token, channel ID, Jira installation and access details, PagerDuty API key, etc. You'll be prompted for all of these while setting it up.
 
-    If you're hosting elsewhere, you can provide all these details via environment variables. These are documented in [app.json](app.json).
+    If you're hosting elsewhere, you can provide all these details via environment variables. These are documented in [app.json](app.json). Note that you'll need at least Node 10.8.0.
 
 7. **Configure app invocation.** To update your Slack topic, the app needs to run! Ideally you'll want to do this via webhook from both Jira and PagerDuty, but you could also invoke it regularly on a schedule.
 
