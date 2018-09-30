@@ -45,7 +45,15 @@ _Tested with Jira Server 7.2.1._
 
 7. **Configure app invocation.** To update your Slack topic, the app needs to run! Ideally you'll want to do this via webhook from both Jira and PagerDuty, but you could also invoke it regularly on a schedule.
 
-    **_Further details and examples coming soon._**
+   Invocation via webhook is recommended because your counts will update pretty much instantly when an event occurs, and because you're then not unnecessarily keeping your app running when it's not needed.
+
+   If you've deployed on Heroku, your app will be accessible at `https://name-of-your-app.herokuapp.com`. You can invoke this from anywhere that can make HTTPS requests. It doesn't need any payload - just a 'ping' to kick off an update. [cron-job.org](https://cron-job.org) is a great way to do this for free.
+
+    Otherwise, to set up invocation from webhooks:
+
+    **Jira:** Head to the webhooks section in your Jira admin (`https://jira.example.com/plugins/servlet/webhooks`) and follow the steps. You'll want to enter a JQL query that covers the issues you're querying in your filter.
+
+    **PagerDuty:** Follow the documentation at https://support.pagerduty.com/docs/webhooks, selecting _Generic V2 Webhook_ when adding the extension to your Service. It does appear that you need to do this for _each_ service you have, however if you have an existing process for automating your PagerDuty settings you may like to use that.
 
 ## Problems?
 
@@ -56,8 +64,7 @@ _Tested with Jira Server 7.2.1._
 * Add better error handling
 * Add tests (& CI), and linting
 * Make workflows more flexible - eg. perhaps only one Jira filter is being used; or only PagerDuty
-* Handle pagination
-* More documentation (particularly on setting up webhooks for invocation)
+* Handle pagination when lots of issues and incidents are returned
 
 ## License
 
