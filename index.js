@@ -18,6 +18,7 @@ const bootstrap = () => {
 
   const server = express();
   server.get( '/', app.handler );
+  server.post( '/', app.handler );
 
   return server.listen( PORT, () => {
     console.log( 'Listening on port ' + PORT + '.' );
