@@ -32,9 +32,9 @@
     "PAGERDUTY_API_KEY": {
       "description": "API key for your PagerDuty account. Generate this at https://your-installation.pagerduty.com/api_keys."
     },
-    "SLACK_CHANNEL_ID": {
-      "description": "The ID of the channel whose topic you wish to update with issue and incident counts. You can get this from the URL given when right-clicking on a channel name and selecting 'Copy Link'.",
-      "value": "C12345678"
+    "SLACK_CHANNEL_IDS": {
+      "description": "Comma-separated IDs of the channel(s) whose topics you wish to update with issue and incident counts. You can get channel IDs from the URL given when right-clicking on a channel name and selecting 'Copy Link'.",
+      "value": "C12345678,C87654321"
     },
     "SLACK_OAUTH_TOKEN": {
       "description": "Token provided by Slack for your user when installing the app to your team. Find this under Basic Information -> OAuth & Permissions within your Slack app management page.",

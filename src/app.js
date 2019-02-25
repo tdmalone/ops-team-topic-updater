@@ -8,7 +8,7 @@
 'use strict';
 
 const JIRA_BLOCKERS_DESCRIPTION = process.env.JIRA_BLOCKERS_DESCRIPTION || 'blocker|blockers',
-      SLACK_CHANNEL_ID = process.env.SLACK_CHANNEL_ID,
+      SLACK_CHANNEL_IDS = process.env.SLACK_CHANNEL_IDS,
       SLACK_OAUTH_TOKEN = process.env.SLACK_OAUTH_TOKEN;
 
 const jira = require( './jira' ),
@@ -74,25 +74,33 @@ const handler = async ( request, response ) => {
       }
     }
 
-    console.log( 'Updating topic for ' + SLACK_CHANNEL_ID + ' to "' + topic + '"...' );
+    const promises = [];
 
-    // Use slack-topic-updater to update the topic and clear the topic update message.
-    return slackTopicUpdater.update({
-      token: SLACK_OAUTH_TOKEN,
-      channel: SLACK_CHANNEL_ID,
-      topic: topic
-    }).then( ( data ) => {
+    SLACK_CHANNEL_IDS.split( ',' ).forEach( ( channel ) => {
 
-      if ( data.ok ) {
-        response.send( 'Done.' );
-        console.log( 'Done.' );
-        return;
-      }
+      console.log( 'Updating topic for ' + channel + ' to "' + topic + '"...' );
 
-      console.error( 'An error occurred updating the Slack topic.' );
-      console.error( data );
+      // Use slack-topic-updater to update the topic and clear the topic update message.
+      promises.push( slackTopicUpdater.update({
+        token: SLACK_OAUTH_TOKEN,
+        channel: channel,
+        topic: topic
+      }).then( ( data ) => {
+
+        if ( data.ok ) {
+          response.send( 'Done.' );
+          console.log( 'Done.' );
+          return;
+        }
+
+        console.error( 'An error occurred updating the Slack topic.' );
+        console.error( data );
+
+      }));
 
     });
+
+    return Promise.all( promises );
 
   } catch ( error ) {
     response.send( 'An error occurred.' );
