@@ -27,3 +27,10 @@ script:
   - yarn test
 
 # On success, deployments are automatically handled by Heroku.
+
+notifications:
+  email: false
+  slack:
+    rooms:
+      - secure: 4WdzwX27oT0ODo1D7/GXlNF81J2B+X75BJejcVa+eAgRTJ320flIpqJaFjvbjyqiRSUkTrL0dGdShkopgpAXsVV2Va5bzkBuYoGYXXM+jJ2PzVtP+cXei6O9HboSDQMk5jzV8v/iTnUn6qPoQUt9stEDa3ua+yfTYgVbQNbjGz6x72HxGzdiKaiEkEcrETLm+phXGKcWqKj6lGJxk+EWb7Lq9tw7szzcu9WixRvj2Jdtfaqu2uURuNEAey1P78qQOCKZYG0Vcf+q2feQ4VYa32khLoVO91RC/tZeyuTaZh2VT8FqzzLrRj9gQMlz+Rkvqj77f1sev5AR2BrtheVW0IkYC8cM0jY4EO59s5lVT+wxs6rPxRZ6CplcCs8FDFtvaO9ZdFk7ALNj33gYt++nX61lJiTPFjnnGzSdstEMuwBUf1now9uUlDwm+lT6VQRzGXzmwPNNM4armAUjizPmS1DLa7JDloJ3lRyQ01n1TRwruoFxqYuglMSOImkGRE3xfIYOUg2dtinIJZfI8b/deUJASZSd759baJqRpmpJt6IiWZo1izzIIU6NSdC/UEolX0Y6slmWFlv4FDDsloxmIE2VB0vbgsy3POC/bv+AEtA8gnIjydW3DtyNMlSBuksUDSMA3Spj4oUim5bjpJi+myqaSTIY4KJ2pQbTYv6OTpI=
+    on_start: always
