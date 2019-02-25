@@ -8,8 +8,8 @@
   "author": "Tim Malone <tdmalone@gmail.com>",
   "license": "MIT",
   "engines": {
-    "node": "10.8.0",
-    "yarn": "1.9.4"
+    "node": ">= 10.8.0",
+    "yarn": ">= 1.9.4"
   },
   "scripts": {
     "lint": "echo Linting is coming soon.",
