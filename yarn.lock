@@ -944,10 +944,10 @@ setprototypeof@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.1.0.tgz#d0bd85536887b6fe7c0d818cb962d9d91c54e656"
 
-slack-topic-updater@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/slack-topic-updater/-/slack-topic-updater-0.0.4.tgz#4fa29dfe4d80c4784c2767ae12079cdcc9066e66"
-  integrity sha512-tJaO3VdOktB2WzZCQ6lskQGvtlnkotNfrW+2nX6wfFbi01AagPpyiy24VE4RGUykZi97AJTu69eYSyjtQN7FTA==
+slack-topic-updater@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/slack-topic-updater/-/slack-topic-updater-0.0.5.tgz#36fcf9cd3a544f5ffe75bfc84bd3678e2e9724bc"
+  integrity sha512-YNY/AtH52pA45NQpy+KDDUqotFkQQO37zhKqSrNXRpUT7d1RIoTJAkCrNfU4ASzE5QjgPGmg1eNJ78CzfEjgSA==
   dependencies:
     "@slack/client" "^4.6.0"
 
