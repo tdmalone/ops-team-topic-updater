@@ -86,7 +86,6 @@ const handler = async ( request, response ) => {
   }).then( ( data ) => {
 
     response.send( 'Done.' );
-    console.log( data );
     console.log( 'Done.' );
 
   }).catch( ( error ) => {
