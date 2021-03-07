@@ -2339,10 +2339,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-slack-topic-updater@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/slack-topic-updater/-/slack-topic-updater-0.0.6.tgz#341ea0638135eb3548f1fe394b580ee7e91113cf"
-  integrity sha512-jw4V1INmpm3N0vqnLg+NkXsKVn6lzVt9ff8hJADrP+YR3zTaUq01i5nDA0In9RA/Pc2xBdCEINybTaE9Rk4VYA==
+slack-topic-updater@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/slack-topic-updater/-/slack-topic-updater-0.0.7.tgz#17c4870ce76e1bd8347ffe9ffc134e9aeb8ef248"
+  integrity sha512-XFbaSLtdgoReQcaSUt+3ByHM606vEulq3MNnXtJBvTs5HcFPbbMQefTzsEsSYUqPkzMZ4pb7i6jskQp5409Qgw==
   dependencies:
     "@slack/client" "^4.6.0"
 

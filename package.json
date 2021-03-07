@@ -24,6 +24,6 @@
     "express": "^4.16.3",
     "jira-connector": "^2.9.0",
     "node-pagerduty": "^1.0.3",
-    "slack-topic-updater": "^0.0.6"
+    "slack-topic-updater": "^0.0.7"
   }
 }
